@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid Name="LogInWindow">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+                <StackPanel Name="LoginPanel" Style="{StaticResource StackPanelStyle}">
+                    <Label Content="Логин" Width="55"></Label>
+                    <TextBox Name="LoginField" Style="{StaticResource LogInStyle}"/>
+                </StackPanel>
+                <StackPanel Name="PasswordPanel" Style="{StaticResource StackPanelStyle}">
+                    <Label Content="Пароль" Width="55"></Label>
+                    <PasswordBox Name="PasswordField" Style="{StaticResource PasswordFieldStyle}"/>
+                </StackPanel>
+                <Label Name="ErrorLabel" Content="" Margin="0,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="50" HorizontalContentAlignment="Center" FontFamily="PF BeauSans Pro Light" FontSize="14"/>
+                <Button Name="LogInButton" Content="Войти" Width="50" Margin="0,5,0,0" Click="LogInButton_Click"></Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Name="Window">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="1" Grid.Column="1" Name="MainMenu" NavigationUIVisibility="Hidden" Margin="5,5,5,5"/>
+            <Button Name="LogOut" Click="LogOut_Click" Style="{StaticResource ExitButtonStyle}"/>
+            <Button Name="PersonalCabinet" Style="{StaticResource PersonalCabinetStyle}"/>
+            <StackPanel Name="MenuPanel" Grid.Row="1" Grid.Column="0" Margin="5,5,5,5">
+                <Button Name="ReceptionButton" Content="Прием" Margin="0,5,0,5"/>
+                <Button Name="CompleteWheelsButton" Content="Комплектация" Margin="0,5,0,5"/>
+                <Button Name="CheckCellsButton" Content="Ячейки" Margin="0,5,0,5"/>
+                <Button Name="RealizationButton" Content="Реализация" Margin="0,5,0,5"/>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Window>
