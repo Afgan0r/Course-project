@@ -34,7 +34,6 @@ namespace WpfApp7
                 {
                     LogInWindow.Visibility = Visibility.Hidden;
                     Window.Visibility = Visibility.Visible;
-                    ErrorLabel.Content = "";
                     LoginField.Text = "";
                     PasswordField.Password = "";
                 }
@@ -48,6 +47,7 @@ namespace WpfApp7
             Window.Visibility = Visibility.Hidden;
             LogInWindow.Visibility = Visibility.Visible;
             MainMenu.Content = null;
+            ErrorLabel.Content = "";
             
         }
 
