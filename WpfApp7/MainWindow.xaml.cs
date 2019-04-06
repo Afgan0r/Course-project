@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static WpfApp7.SQL;
-using static WpfApp7.GridTable;
+using WpfApp7.Pages;
 
 namespace WpfApp7
 {
@@ -30,37 +17,30 @@ namespace WpfApp7
         }
         //static Page1 page1 = new Page1();
         //static Page2 page2 = new Page2();
-
-        private void OpenPage1_Click(object sender, RoutedEventArgs e)
-        {
-            //MainMenu.Content = page1;
-        }
-
-        private void OpenPag2_Click(object sender, RoutedEventArgs e)
-        {
-            //MainMenu.Content = page2;
-        }
+        static CheckCellsPage CheckCellsPage = new CheckCellsPage();
+        static CompleteWheelsPage CompleteWheelsPage = new CompleteWheelsPage();
+        static RealizationPage RealizationPage = new RealizationPage();
+        static ReceptionPage ReceptionPage = new ReceptionPage();
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            //SqlConnection connection = connectToDatabase();
-            //SqlDataReader reader = null;
-           // string selectString = "select [Login], [Password] from [dbo].[SignIn]";
-            //SqlCommand command = new SqlCommand(selectString, connection);
-            // reader = command.ExecuteReader();
-            //while (reader.Read())
-            //{
-                //if (reader[0].ToString().Equals(LoginField.Text)
-                   //&&
-                    //reader[1].ToString().Equals(PasswordField.Password))
-                //{
+            var connection = connectToDatabase();
+            var selectString = "select [Login], [Password] from [dbo].[SignIn]";
+            var command = new SqlCommand(selectString, connection);
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader[0].ToString().Equals(LoginField.Text) && reader[1].ToString().Equals(PasswordField.Password))
+                {
                     LogInWindow.Visibility = Visibility.Hidden;
                     Window.Visibility = Visibility.Visible;
-                //}
-            //}
-            //ErrorLabel.Content = "Введеный логин или пароль неверны.\nПроверьте входные данные";
-            //connection.Close();
-            
+                    ErrorLabel.Content = "";
+                    LoginField.Text = "";
+                    PasswordField.Password = "";
+                }
+            }
+            ErrorLabel.Content = "Введеный логин или пароль неверны.\nПроверьте входные данные";
+            connection.Close();          
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
@@ -69,6 +49,26 @@ namespace WpfApp7
             LogInWindow.Visibility = Visibility.Visible;
             MainMenu.Content = null;
             
+        }
+
+        private void ReceptionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CompleteWheelsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckCellsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu.Content = CheckCellsPage;
+        }
+
+        private void RealizationButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

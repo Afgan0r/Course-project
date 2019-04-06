@@ -24,5 +24,10 @@ namespace WpfApp7.Pages
         {
             InitializeComponent();
         }
+
+        internal void Content()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

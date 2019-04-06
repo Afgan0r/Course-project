@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GridTable.cs" />
     <Compile Include="Pages\CheckCellsPage.xaml.cs">
       <DependentUpon>CheckCellsPage.xaml</DependentUpon>
     </Compile>
@@ -70,6 +69,16 @@
       <DependentUpon>ReceptionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
+    <Compile Include="Workshop_EquipmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Workshop_EquipmentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Workshop_EquipmentDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Workshop_EquipmentDataSet1.xsd</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +129,28 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Workshop_EquipmentDataSet.xsc">
+      <DependentUpon>Workshop_EquipmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Workshop_EquipmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Workshop_EquipmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Workshop_EquipmentDataSet.xss">
+      <DependentUpon>Workshop_EquipmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Workshop_EquipmentDataSet1.xsc">
+      <DependentUpon>Workshop_EquipmentDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Workshop_EquipmentDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Workshop_EquipmentDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Workshop_EquipmentDataSet1.xss">
+      <DependentUpon>Workshop_EquipmentDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
