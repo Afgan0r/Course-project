@@ -8,13 +8,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CheckCellsPage">
-
     <Page.Resources>
-        <WpfApp7:Workshop_EquipmentDataSet1 x:Key="workshop_EquipmentDataSet1"/>
-        <CollectionViewSource x:Key="cellViewSource" Source="{Binding Cell, Source={StaticResource workshop_EquipmentDataSet1}}"/>
+        <WpfApp7:CheckCellWithFloor x:Key="checkCellWithFloor"/>
+        <CollectionViewSource x:Key="cellWIthFloorViewSource" Source="{Binding CellWIthFloor, Source={StaticResource checkCellWithFloor}}"/>
     </Page.Resources>
 
-    <Grid DataContext="{StaticResource cellViewSource}">
-        <DataGrid ItemsSource="{Binding}"/>
+    <Grid DataContext="{StaticResource cellWIthFloorViewSource}">
+        <DataGrid x:Name="cellWIthFloorDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="number_of_cellColumn" Binding="{Binding number_of_cell}" Header="Номер ячейки" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="name_of_floorColumn" Binding="{Binding name_of_floor}" Header="Номер этажа" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="name_of_cellColumn" Binding="{Binding name_of_cell}" Header="Название ячейки" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="specificationColumn" Binding="{Binding specification}" Header="Колеса" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="contains_wheelColumn" Binding="{Binding contains_wheel}" Header="Кол-во на складе" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="maximum_containsColumn" Binding="{Binding maximum_contains}" Header="Максимальное количество" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

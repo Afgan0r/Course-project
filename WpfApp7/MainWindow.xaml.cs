@@ -48,7 +48,6 @@ namespace WpfApp7
             LogInWindow.Visibility = Visibility.Visible;
             MainMenu.Content = null;
             ErrorLabel.Content = "";
-            
         }
 
         private void ReceptionButton_Click(object sender, RoutedEventArgs e)

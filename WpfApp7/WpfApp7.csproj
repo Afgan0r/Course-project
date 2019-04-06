@@ -56,6 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CheckCellWithFloor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckCellWithFloor.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CheckCellsPage.xaml.cs">
       <DependentUpon>CheckCellsPage.xaml</DependentUpon>
     </Compile>
@@ -69,16 +74,6 @@
       <DependentUpon>ReceptionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
-    <Compile Include="Workshop_EquipmentDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Workshop_EquipmentDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Workshop_EquipmentDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Workshop_EquipmentDataSet1.xsd</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,31 +121,20 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="CheckCellWithFloor.xsc">
+      <DependentUpon>CheckCellWithFloor.xsd</DependentUpon>
+    </None>
+    <None Include="CheckCellWithFloor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CheckCellWithFloor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CheckCellWithFloor.xss">
+      <DependentUpon>CheckCellWithFloor.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Workshop_EquipmentDataSet.xsc">
-      <DependentUpon>Workshop_EquipmentDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Workshop_EquipmentDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Workshop_EquipmentDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Workshop_EquipmentDataSet.xss">
-      <DependentUpon>Workshop_EquipmentDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Workshop_EquipmentDataSet1.xsc">
-      <DependentUpon>Workshop_EquipmentDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Workshop_EquipmentDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Workshop_EquipmentDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Workshop_EquipmentDataSet1.xss">
-      <DependentUpon>Workshop_EquipmentDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

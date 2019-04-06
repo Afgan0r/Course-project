@@ -20,17 +20,17 @@ namespace WpfApp7 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Workshop_EquipmentDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("CheckCellWithFloor")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Workshop_EquipmentDataSet : global::System.Data.DataSet {
+    public partial class CheckCellWithFloor : global::System.Data.DataSet {
         
-        private SignInDataTable tableSignIn;
+        private CellWIthFloorDataTable tableCellWIthFloor;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Workshop_EquipmentDataSet() {
+        public CheckCellWithFloor() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace WpfApp7 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Workshop_EquipmentDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected CheckCellWithFloor(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace WpfApp7 {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["SignIn"] != null)) {
-                    base.Tables.Add(new SignInDataTable(ds.Tables["SignIn"]));
+                if ((ds.Tables["CellWIthFloor"] != null)) {
+                    base.Tables.Add(new CellWIthFloorDataTable(ds.Tables["CellWIthFloor"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace WpfApp7 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SignInDataTable SignIn {
+        public CellWIthFloorDataTable CellWIthFloor {
             get {
-                return this.tableSignIn;
+                return this.tableCellWIthFloor;
             }
         }
         
@@ -127,7 +127,7 @@ namespace WpfApp7 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Workshop_EquipmentDataSet cln = ((Workshop_EquipmentDataSet)(base.Clone()));
+            CheckCellWithFloor cln = ((CheckCellWithFloor)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace WpfApp7 {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["SignIn"] != null)) {
-                    base.Tables.Add(new SignInDataTable(ds.Tables["SignIn"]));
+                if ((ds.Tables["CellWIthFloor"] != null)) {
+                    base.Tables.Add(new CellWIthFloorDataTable(ds.Tables["CellWIthFloor"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace WpfApp7 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableSignIn = ((SignInDataTable)(base.Tables["SignIn"]));
+            this.tableCellWIthFloor = ((CellWIthFloorDataTable)(base.Tables["CellWIthFloor"]));
             if ((initTable == true)) {
-                if ((this.tableSignIn != null)) {
-                    this.tableSignIn.InitVars();
+                if ((this.tableCellWIthFloor != null)) {
+                    this.tableCellWIthFloor.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace WpfApp7 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Workshop_EquipmentDataSet";
+            this.DataSetName = "CheckCellWithFloor";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Workshop_EquipmentDataSet.xsd";
+            this.Namespace = "http://tempuri.org/CheckCellWithFloor.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableSignIn = new SignInDataTable();
-            base.Tables.Add(this.tableSignIn);
+            this.tableCellWIthFloor = new CellWIthFloorDataTable();
+            base.Tables.Add(this.tableCellWIthFloor);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeSignIn() {
+        private bool ShouldSerializeCellWIthFloor() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace WpfApp7 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Workshop_EquipmentDataSet ds = new Workshop_EquipmentDataSet();
+            CheckCellWithFloor ds = new CheckCellWithFloor();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,31 @@ namespace WpfApp7 {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void SignInRowChangeEventHandler(object sender, SignInRowChangeEvent e);
+        public delegate void CellWIthFloorRowChangeEventHandler(object sender, CellWIthFloorRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SignInDataTable : global::System.Data.TypedTableBase<SignInRow> {
+        public partial class CellWIthFloorDataTable : global::System.Data.TypedTableBase<CellWIthFloorRow> {
             
-            private global::System.Data.DataColumn columnLogin;
+            private global::System.Data.DataColumn columnnumber_of_cell;
             
-            private global::System.Data.DataColumn columnPassword;
+            private global::System.Data.DataColumn columnname_of_floor;
+            
+            private global::System.Data.DataColumn columnname_of_cell;
+            
+            private global::System.Data.DataColumn columnspecification;
+            
+            private global::System.Data.DataColumn columncontains_wheel;
+            
+            private global::System.Data.DataColumn columnmaximum_contains;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SignInDataTable() {
-                this.TableName = "SignIn";
+            public CellWIthFloorDataTable() {
+                this.TableName = "CellWIthFloor";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +302,7 @@ namespace WpfApp7 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal SignInDataTable(global::System.Data.DataTable table) {
+            internal CellWIthFloorDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +319,56 @@ namespace WpfApp7 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected SignInDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CellWIthFloorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoginColumn {
+            public global::System.Data.DataColumn number_of_cellColumn {
                 get {
-                    return this.columnLogin;
+                    return this.columnnumber_of_cell;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PasswordColumn {
+            public global::System.Data.DataColumn name_of_floorColumn {
                 get {
-                    return this.columnPassword;
+                    return this.columnname_of_floor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn name_of_cellColumn {
+                get {
+                    return this.columnname_of_cell;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn specificationColumn {
+                get {
+                    return this.columnspecification;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn contains_wheelColumn {
+                get {
+                    return this.columncontains_wheel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn maximum_containsColumn {
+                get {
+                    return this.columnmaximum_contains;
                 }
             }
             
@@ -343,46 +383,50 @@ namespace WpfApp7 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SignInRow this[int index] {
+            public CellWIthFloorRow this[int index] {
                 get {
-                    return ((SignInRow)(this.Rows[index]));
+                    return ((CellWIthFloorRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SignInRowChangeEventHandler SignInRowChanging;
+            public event CellWIthFloorRowChangeEventHandler CellWIthFloorRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SignInRowChangeEventHandler SignInRowChanged;
+            public event CellWIthFloorRowChangeEventHandler CellWIthFloorRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SignInRowChangeEventHandler SignInRowDeleting;
+            public event CellWIthFloorRowChangeEventHandler CellWIthFloorRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SignInRowChangeEventHandler SignInRowDeleted;
+            public event CellWIthFloorRowChangeEventHandler CellWIthFloorRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddSignInRow(SignInRow row) {
+            public void AddCellWIthFloorRow(CellWIthFloorRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SignInRow AddSignInRow(string Login, string Password) {
-                SignInRow rowSignInRow = ((SignInRow)(this.NewRow()));
+            public CellWIthFloorRow AddCellWIthFloorRow(int number_of_cell, string name_of_floor, string name_of_cell, string specification, int contains_wheel, int maximum_contains) {
+                CellWIthFloorRow rowCellWIthFloorRow = ((CellWIthFloorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Login,
-                        Password};
-                rowSignInRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSignInRow);
-                return rowSignInRow;
+                        number_of_cell,
+                        name_of_floor,
+                        name_of_cell,
+                        specification,
+                        contains_wheel,
+                        maximum_contains};
+                rowCellWIthFloorRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCellWIthFloorRow);
+                return rowCellWIthFloorRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SignInDataTable cln = ((SignInDataTable)(base.Clone()));
+                CellWIthFloorDataTable cln = ((CellWIthFloorDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -390,53 +434,69 @@ namespace WpfApp7 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SignInDataTable();
+                return new CellWIthFloorDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnLogin = base.Columns["Login"];
-                this.columnPassword = base.Columns["Password"];
+                this.columnnumber_of_cell = base.Columns["number_of_cell"];
+                this.columnname_of_floor = base.Columns["name_of_floor"];
+                this.columnname_of_cell = base.Columns["name_of_cell"];
+                this.columnspecification = base.Columns["specification"];
+                this.columncontains_wheel = base.Columns["contains_wheel"];
+                this.columnmaximum_contains = base.Columns["maximum_contains"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnLogin = new global::System.Data.DataColumn("Login", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLogin);
-                this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPassword);
-                this.columnLogin.AllowDBNull = false;
-                this.columnLogin.MaxLength = 15;
-                this.columnPassword.AllowDBNull = false;
-                this.columnPassword.MaxLength = 20;
+                this.columnnumber_of_cell = new global::System.Data.DataColumn("number_of_cell", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumber_of_cell);
+                this.columnname_of_floor = new global::System.Data.DataColumn("name_of_floor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_of_floor);
+                this.columnname_of_cell = new global::System.Data.DataColumn("name_of_cell", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_of_cell);
+                this.columnspecification = new global::System.Data.DataColumn("specification", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnspecification);
+                this.columncontains_wheel = new global::System.Data.DataColumn("contains_wheel", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontains_wheel);
+                this.columnmaximum_contains = new global::System.Data.DataColumn("maximum_contains", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmaximum_contains);
+                this.columnnumber_of_cell.AllowDBNull = false;
+                this.columnname_of_floor.AllowDBNull = false;
+                this.columnname_of_floor.MaxLength = 3;
+                this.columnname_of_cell.MaxLength = 50;
+                this.columnspecification.AllowDBNull = false;
+                this.columnspecification.MaxLength = 50;
+                this.columncontains_wheel.AllowDBNull = false;
+                this.columnmaximum_contains.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SignInRow NewSignInRow() {
-                return ((SignInRow)(this.NewRow()));
+            public CellWIthFloorRow NewCellWIthFloorRow() {
+                return ((CellWIthFloorRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SignInRow(builder);
+                return new CellWIthFloorRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SignInRow);
+                return typeof(CellWIthFloorRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SignInRowChanged != null)) {
-                    this.SignInRowChanged(this, new SignInRowChangeEvent(((SignInRow)(e.Row)), e.Action));
+                if ((this.CellWIthFloorRowChanged != null)) {
+                    this.CellWIthFloorRowChanged(this, new CellWIthFloorRowChangeEvent(((CellWIthFloorRow)(e.Row)), e.Action));
                 }
             }
             
@@ -444,8 +504,8 @@ namespace WpfApp7 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SignInRowChanging != null)) {
-                    this.SignInRowChanging(this, new SignInRowChangeEvent(((SignInRow)(e.Row)), e.Action));
+                if ((this.CellWIthFloorRowChanging != null)) {
+                    this.CellWIthFloorRowChanging(this, new CellWIthFloorRowChangeEvent(((CellWIthFloorRow)(e.Row)), e.Action));
                 }
             }
             
@@ -453,8 +513,8 @@ namespace WpfApp7 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SignInRowDeleted != null)) {
-                    this.SignInRowDeleted(this, new SignInRowChangeEvent(((SignInRow)(e.Row)), e.Action));
+                if ((this.CellWIthFloorRowDeleted != null)) {
+                    this.CellWIthFloorRowDeleted(this, new CellWIthFloorRowChangeEvent(((CellWIthFloorRow)(e.Row)), e.Action));
                 }
             }
             
@@ -462,14 +522,14 @@ namespace WpfApp7 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SignInRowDeleting != null)) {
-                    this.SignInRowDeleting(this, new SignInRowChangeEvent(((SignInRow)(e.Row)), e.Action));
+                if ((this.CellWIthFloorRowDeleting != null)) {
+                    this.CellWIthFloorRowDeleting(this, new CellWIthFloorRowChangeEvent(((CellWIthFloorRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveSignInRow(SignInRow row) {
+            public void RemoveCellWIthFloorRow(CellWIthFloorRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -478,7 +538,7 @@ namespace WpfApp7 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Workshop_EquipmentDataSet ds = new Workshop_EquipmentDataSet();
+                CheckCellWithFloor ds = new CheckCellWithFloor();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -496,7 +556,7 @@ namespace WpfApp7 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SignInDataTable";
+                attribute2.FixedValue = "CellWIthFloorDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -540,37 +600,98 @@ namespace WpfApp7 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SignInRow : global::System.Data.DataRow {
+        public partial class CellWIthFloorRow : global::System.Data.DataRow {
             
-            private SignInDataTable tableSignIn;
+            private CellWIthFloorDataTable tableCellWIthFloor;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal SignInRow(global::System.Data.DataRowBuilder rb) : 
+            internal CellWIthFloorRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSignIn = ((SignInDataTable)(this.Table));
+                this.tableCellWIthFloor = ((CellWIthFloorDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Login {
+            public int number_of_cell {
                 get {
-                    return ((string)(this[this.tableSignIn.LoginColumn]));
+                    return ((int)(this[this.tableCellWIthFloor.number_of_cellColumn]));
                 }
                 set {
-                    this[this.tableSignIn.LoginColumn] = value;
+                    this[this.tableCellWIthFloor.number_of_cellColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Password {
+            public string name_of_floor {
                 get {
-                    return ((string)(this[this.tableSignIn.PasswordColumn]));
+                    return ((string)(this[this.tableCellWIthFloor.name_of_floorColumn]));
                 }
                 set {
-                    this[this.tableSignIn.PasswordColumn] = value;
+                    this[this.tableCellWIthFloor.name_of_floorColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string name_of_cell {
+                get {
+                    try {
+                        return ((string)(this[this.tableCellWIthFloor.name_of_cellColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_of_cell\' в таблице \'CellWIthFloor\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCellWIthFloor.name_of_cellColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string specification {
+                get {
+                    return ((string)(this[this.tableCellWIthFloor.specificationColumn]));
+                }
+                set {
+                    this[this.tableCellWIthFloor.specificationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int contains_wheel {
+                get {
+                    return ((int)(this[this.tableCellWIthFloor.contains_wheelColumn]));
+                }
+                set {
+                    this[this.tableCellWIthFloor.contains_wheelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int maximum_contains {
+                get {
+                    return ((int)(this[this.tableCellWIthFloor.maximum_containsColumn]));
+                }
+                set {
+                    this[this.tableCellWIthFloor.maximum_containsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isname_of_cellNull() {
+                return this.IsNull(this.tableCellWIthFloor.name_of_cellColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setname_of_cellNull() {
+                this[this.tableCellWIthFloor.name_of_cellColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -578,22 +699,22 @@ namespace WpfApp7 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class SignInRowChangeEvent : global::System.EventArgs {
+        public class CellWIthFloorRowChangeEvent : global::System.EventArgs {
             
-            private SignInRow eventRow;
+            private CellWIthFloorRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SignInRowChangeEvent(SignInRow row, global::System.Data.DataRowAction action) {
+            public CellWIthFloorRowChangeEvent(CellWIthFloorRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SignInRow Row {
+            public CellWIthFloorRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -609,7 +730,7 @@ namespace WpfApp7 {
         }
     }
 }
-namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
+namespace WpfApp7.CheckCellWithFloorTableAdapters {
     
     
     /// <summary>
@@ -621,7 +742,7 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SignInTableAdapter : global::System.ComponentModel.Component {
+    public partial class CellWIthFloorTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -635,7 +756,7 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public SignInTableAdapter() {
+        public CellWIthFloorTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -732,16 +853,14 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SignIn";
-            tableMapping.ColumnMappings.Add("Login", "Login");
-            tableMapping.ColumnMappings.Add("Password", "Password");
+            tableMapping.DataSetTable = "CellWIthFloor";
+            tableMapping.ColumnMappings.Add("number_of_cell", "number_of_cell");
+            tableMapping.ColumnMappings.Add("name_of_floor", "name_of_floor");
+            tableMapping.ColumnMappings.Add("name_of_cell", "name_of_cell");
+            tableMapping.ColumnMappings.Add("specification", "specification");
+            tableMapping.ColumnMappings.Add("contains_wheel", "contains_wheel");
+            tableMapping.ColumnMappings.Add("maximum_contains", "maximum_contains");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SignIn] ([Login], [Password]) VALUES (@Login, @Password)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Login", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -757,7 +876,8 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Login, Password FROM dbo.SignIn";
+            this._commandCollection[0].CommandText = "SELECT number_of_cell, name_of_floor, name_of_cell, specification, contains_wheel" +
+                ", maximum_contains FROM dbo.CellWIthFloor";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -765,7 +885,7 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Workshop_EquipmentDataSet.SignInDataTable dataTable) {
+        public virtual int Fill(CheckCellWithFloor.CellWIthFloorDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -778,73 +898,11 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Workshop_EquipmentDataSet.SignInDataTable GetData() {
+        public virtual CheckCellWithFloor.CellWIthFloorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Workshop_EquipmentDataSet.SignInDataTable dataTable = new Workshop_EquipmentDataSet.SignInDataTable();
+            CheckCellWithFloor.CellWIthFloorDataTable dataTable = new CheckCellWithFloor.CellWIthFloorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Workshop_EquipmentDataSet.SignInDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Workshop_EquipmentDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "SignIn");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Login, string Password) {
-            if ((Login == null)) {
-                throw new global::System.ArgumentNullException("Login");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Login));
-            }
-            if ((Password == null)) {
-                throw new global::System.ArgumentNullException("Password");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Password));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -860,8 +918,6 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private SignInTableAdapter _signInTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -874,20 +930,6 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public SignInTableAdapter SignInTableAdapter {
-            get {
-                return this._signInTableAdapter;
-            }
-            set {
-                this._signInTableAdapter = value;
             }
         }
         
@@ -910,10 +952,6 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._signInTableAdapter != null) 
-                            && (this._signInTableAdapter.Connection != null))) {
-                    return this._signInTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -927,9 +965,6 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._signInTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -939,17 +974,8 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Workshop_EquipmentDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(CheckCellWithFloor dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._signInTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SignIn.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._signInTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -958,16 +984,8 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Workshop_EquipmentDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(CheckCellWithFloor dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._signInTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SignIn.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._signInTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -976,16 +994,8 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Workshop_EquipmentDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(CheckCellWithFloor dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._signInTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SignIn.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._signInTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1018,17 +1028,12 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Workshop_EquipmentDataSet dataSet) {
+        public virtual int UpdateAll(CheckCellWithFloor dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._signInTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._signInTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
@@ -1062,15 +1067,6 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._signInTableAdapter != null)) {
-                    revertConnections.Add(this._signInTableAdapter, this._signInTableAdapter.Connection);
-                    this._signInTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._signInTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._signInTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._signInTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._signInTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1128,10 +1124,6 @@ namespace WpfApp7.Workshop_EquipmentDataSetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._signInTableAdapter != null)) {
-                    this._signInTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._signInTableAdapter]));
-                    this._signInTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
