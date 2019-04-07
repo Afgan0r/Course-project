@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static WpfApp7.SQL;
 
 namespace WpfApp7.Pages
 {
@@ -23,9 +26,10 @@ namespace WpfApp7.Pages
         public CheckCellsPage()
         {
             InitializeComponent();
+            
         }
 
-        internal void Content()
+        internal new void Content()
         {
             throw new NotImplementedException();
         }

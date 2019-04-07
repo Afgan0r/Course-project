@@ -2,6 +2,8 @@
 using System.Windows;
 using static WpfApp7.SQL;
 using WpfApp7.Pages;
+using System;
+using System.Data;
 
 namespace WpfApp7
 {
@@ -15,31 +17,58 @@ namespace WpfApp7
             InitializeComponent();
             Window.Visibility = Visibility.Hidden;
         }
-        //static Page1 page1 = new Page1();
-        //static Page2 page2 = new Page2();
-        static CheckCellsPage CheckCellsPage = new CheckCellsPage();
-        static CompleteWheelsPage CompleteWheelsPage = new CompleteWheelsPage();
-        static RealizationPage RealizationPage = new RealizationPage();
-        static ReceptionPage ReceptionPage = new ReceptionPage();
+        static CheckCellsPage checkCellsPage = new CheckCellsPage();
+        static CompleteWheelsPage completeWheelsPage = new CompleteWheelsPage();
+        static RealizationPage realizationPage = new RealizationPage();
+        static ReceptionPage receptionPage = new ReceptionPage();
+
+        public static void FillCellWithFloorData()
+        {
+            var selectString = "SELECT dbo.Cell.number_of_cell, dbo.Floor.name_of_floor, dbo.Cell.name_of_cell, dbo.Cell.specification, dbo.Cell.contains_wheel, dbo.Cell.maximum_contains " +
+                "FROM dbo.Cell INNER JOIN dbo.Floor " +
+                "ON dbo.Cell.floor_of_cell = dbo.Floor.id_floor";
+            using (var connection = connectToDatabase())
+            {
+                var command = new SqlCommand(selectString, connection);
+                var dataAdapter = new SqlDataAdapter(command);
+                var dataTable = new DataTable("CellsWithFloor");
+                dataAdapter.Fill(dataTable);
+                checkCellsPage.CheckCellWithFloorDataGrid.ItemsSource = dataTable.DefaultView;
+                connection.Close();
+            }
+        }
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            var connection = connectToDatabase();
-            var selectString = "select [Login], [Password] from [dbo].[SignIn]";
-            var command = new SqlCommand(selectString, connection);
-            var reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var connection = connectToDatabase())
             {
-                if (reader[0].ToString().Equals(LoginField.Text) && reader[1].ToString().Equals(PasswordField.Password))
+
+                try
                 {
-                    LogInWindow.Visibility = Visibility.Hidden;
-                    Window.Visibility = Visibility.Visible;
-                    LoginField.Text = "";
-                    PasswordField.Password = "";
+                    var selectString = "select [Login], [Password] from [dbo].[SignIn]";
+                    var command = new SqlCommand(selectString, connection);
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader[0].ToString().Equals(LoginField.Text) && reader[1].ToString().Equals(PasswordField.Password))
+                        {
+                            LogInWindow.Visibility = Visibility.Hidden;
+                            Window.Visibility = Visibility.Visible;
+                            LoginField.Text = "";
+                            PasswordField.Password = "";
+                        }
+                    }
+                    ErrorLabel.Content = "Введеный логин или пароль неверны.\nПроверьте входные данные";
+                }
+                catch (Exception exc)
+                {
+                   Console.WriteLine(exc);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
-            ErrorLabel.Content = "Введеный логин или пароль неверны.\nПроверьте входные данные";
-            connection.Close();          
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
@@ -62,7 +91,8 @@ namespace WpfApp7
 
         private void CheckCellsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu.Content = CheckCellsPage;
+            MainMenu.Content = checkCellsPage;
+            FillCellWithFloorData();
         }
 
         private void RealizationButton_Click(object sender, RoutedEventArgs e)

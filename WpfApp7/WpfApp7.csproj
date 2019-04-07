@@ -56,11 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CheckCellWithFloor.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CheckCellWithFloor.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CheckCellsPage.xaml.cs">
       <DependentUpon>CheckCellsPage.xaml</DependentUpon>
     </Compile>
@@ -121,17 +116,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="CheckCellWithFloor.xsc">
-      <DependentUpon>CheckCellWithFloor.xsd</DependentUpon>
-    </None>
-    <None Include="CheckCellWithFloor.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CheckCellWithFloor.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CheckCellWithFloor.xss">
-      <DependentUpon>CheckCellWithFloor.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

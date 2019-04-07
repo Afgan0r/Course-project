@@ -73,7 +73,6 @@ C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня
 C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\Pages\RealizationPage.g.cs
 C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\Pages\ReceptionPage.g.cs
 C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\App.g.cs
-C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\WpfApp7_MarkupCompile.cache
 C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\WpfApp7_MarkupCompile.lref
 C:\Users\Александр\Google disk\9ИСиП171\конспекты\Саня\2 курс\2 семестр\Курсовая\Программа\Course-project\WpfApp7\obj\Debug\App.baml
