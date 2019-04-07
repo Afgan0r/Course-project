@@ -6,6 +6,27 @@
     
     <Application.Resources>
 
+        <Style x:Key="LabelFontStyle" TargetType="Label">
+            <!--FontFamily="PF BeauSans Pro Light" FontSize="14"-->
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="30"/>
+
+        </Style>
+        <Style x:Key="ButtonFontStyle" TargetType="Button">
+            <!--FontFamily="PF BeauSans Pro Light" FontSize="14"-->
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style x:Key="ComboBoxFontStyle" TargetType="ComboBox">
+            <!--FontFamily="PF BeauSans Pro Light" FontSize="14"-->
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="30"/>
+
+        </Style>
+        
         <Style x:Key="StackPanelStyle" TargetType="StackPanel">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -19,6 +40,8 @@
             <Setter Property="Width" Value="150"/>
             <Setter Property="TextAlignment" Value="Justify"/>
             <Setter Property="Height" Value="20"/>
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
 
         <Style x:Key="PasswordFieldStyle" TargetType="PasswordBox">
@@ -27,6 +50,8 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="20"/>
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
 
         <Style x:Key="ExitButtonStyle" TargetType="Button">
@@ -38,16 +63,20 @@
             <Setter Property="Grid.Row" Value="0"/>
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="Margin" Value="0,45,15,0"/>
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
 
         <Style x:Key="PersonalCabinetStyle" TargetType="Button">
             <Setter Property="Content" Value="Личный кабинет"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Width" Value="100"/>
+            <Setter Property="Width" Value="125"/>
             <Setter Property="Grid.Row" Value="0"/>
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="Margin" Value="0,15,15,0"/>
+            <Setter Property="FontFamily" Value="PF BeauSans Pro Light"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
 
         <!--

@@ -25,8 +25,7 @@ namespace WpfApp7.Pages
     {
         public CheckCellsPage()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         internal new void Content()
