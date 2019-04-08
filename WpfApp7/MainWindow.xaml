@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
     <Grid>
-        <Grid Name="LogInWindow">
-            
+        <Grid Name="LogInWindow" Background="Gray">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
                 
                 <StackPanel Name="LoginPanel" Style="{StaticResource StackPanelStyle}">
@@ -29,18 +28,19 @@
             
         </Grid>
 
-        <Grid Name="Window">
+        <Grid Name="Window" Background="DimGray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             
-            <Frame Grid.Row="1" Grid.Column="1" Name="MainMenu" NavigationUIVisibility="Hidden" Margin="5,5,5,5"/>
-            
+            <Frame Name="MainMenu" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="5,5,5,5" Background="Gray"/>
+            <Frame Name="PersonalCabinetFrame" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
             <Button Name="LogOut" Click="LogOut_Click" Style="{StaticResource ExitButtonStyle}"/>
             <Button Name="PersonalCabinet" Style="{StaticResource PersonalCabinetStyle}"/>
             
@@ -52,7 +52,6 @@
             </StackPanel>
             
         </Grid>
-
 
     </Grid>
 </Window>

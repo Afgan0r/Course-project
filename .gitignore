@@ -7,3 +7,5 @@
 .vs/WpfApp7/v15/Server/sqlite3/storage.ide
 .vs/WpfApp7/v15/Server/sqlite3/storage.ide-wal
 /.vs/WpfApp7/v16
+/.vs
+/WpfApp7/obj/Release

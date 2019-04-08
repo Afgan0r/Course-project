@@ -12,9 +12,9 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="CheckCellWithFloorDataGrid" Grid.Column="1" />
+        <DataGrid Name="CheckCellWithFloorDataGrid" Grid.Column="1" Margin="10,42,10,10"/>
         <StackPanel Grid.Column="0">
             <StackPanel>
                 <Label Content="Этаж" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,10,0,5"/>
