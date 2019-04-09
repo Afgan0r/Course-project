@@ -24,24 +24,38 @@ namespace WpfApp7
 
         public static void FillCellPage()
         {
-            //TODO CREATE DATAGRID MANUALY
-            //var selectString = "SELECT dbo.Cell.number_of_cell, dbo.Floor.name_of_floor, dbo.Cell.name_of_cell, dbo.Cell.specification, dbo.Cell.contains_wheel, dbo.Cell.maximum_contains " +
-            //    "FROM dbo.Cell INNER JOIN dbo.Floor " +
-            //    "ON dbo.Cell.floor_of_cell = dbo.Floor.id_floor";
-            //using (var connection = connectToDatabase())
-            //{
-            //    var command = new SqlCommand(selectString, connection);
-            //    var dataAdapter = new SqlDataAdapter(command);
-            //    var dataTable = new DataTable("CellsWithFloor");
-            //    dataAdapter.Fill(dataTable);
-            //    checkCellsPage.CheckCellWithFloorDataGrid.ItemsSource = dataTable.DefaultView;
-            //    connection.Close();
-            //}
+            var selectString = "SELECT dbo.Cell.number_of_cell, dbo.Floor.name_of_floor, dbo.Cell.name_of_cell, dbo.Cell.specification, dbo.Cell.contains_wheel, dbo.Cell.maximum_contains " +
+                "FROM dbo.Cell INNER JOIN dbo.Floor " +
+                "ON dbo.Cell.floor_of_cell = dbo.Floor.id_floor";
+            using (var connection = connectToDatabase())
+            {
+                var command = new SqlCommand(selectString, connection);
+                var dataAdapter = new SqlDataAdapter(command);
+                var dataTable = new DataTable("CellsWithFloor");
+                dataAdapter.Fill(dataTable);
+                checkCellsPage.CheckCellWithFloorDataGrid.ItemsSource = dataTable.DefaultView;
+                connection.Close();
+            }
         }
 
         public static void FillReceptionPage()
         {
-            //TODO CREATE DATAGRID MANUALY           
+            string selectTubeString = "SELECT name_of_tube, how_many_took FROM dbo.Tube";
+            string selectTyreString = "SELECT name_of_tyre, how_many_took FROM dbo.Tyre";
+            using(var connection = connectToDatabase())
+            {
+                var commandTube = new SqlCommand(selectTubeString, connection);                
+                var dataAdapterTube = new SqlDataAdapter(commandTube);                
+                var dataTableTube = new DataTable("TubeView");                
+                dataAdapterTube.Fill(dataTableTube);                
+                receptionPage.TubeDataGrid.ItemsSource = dataTableTube.DefaultView;
+                
+                var commandTyre = new SqlCommand(selectTyreString, connection);
+                var dataAdapterTyre = new SqlDataAdapter(commandTyre);
+                var dataTableTyre = new DataTable("TyreView");
+                dataAdapterTyre.Fill(dataTableTyre);
+                receptionPage.TyreDataGrid.ItemsSource = dataTableTyre.DefaultView;
+            }
         }
         public static void FillCompleteWheelsPage()
         {
@@ -55,35 +69,35 @@ namespace WpfApp7
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            //using (var connection = connectToDatabase())
-            //{
+            using (var connection = connectToDatabase())
+            {
 
-            //    try
-            //    {
-            //        var selectString = "select [Login], [Password] from [dbo].[SignIn]";
-            //        var command = new SqlCommand(selectString, connection);
-            //        var reader = command.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-            //            if (reader[0].ToString().Equals(LoginField.Text) && reader[1].ToString().Equals(PasswordField.Password))
-            //            {
-            LogInWindow.Visibility = Visibility.Hidden;
-            Window.Visibility = Visibility.Visible;
-            LoginField.Text = "";
-            PasswordField.Password = "";
-            //            }
-            //        }
-            //        ErrorLabel.Content = "Введеный логин или пароль неверны.\nПроверьте входные данные";
-            //    }
-            //    catch (Exception exc)
-            //    {
-            //        Console.WriteLine(exc);
-            //    }
-            //    finally
-            //    {
-            //        connection.Close();
-            //    }
-            //}
+                try
+                {
+                    var selectString = "select [Login], [Password] from [dbo].[SignIn]";
+                    var command = new SqlCommand(selectString, connection);
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader[0].ToString().Equals(LoginField.Text) && reader[1].ToString().Equals(PasswordField.Password))
+                        {
+                            LogInWindow.Visibility = Visibility.Hidden;
+                            Window.Visibility = Visibility.Visible;
+                            LoginField.Text = "";
+                            PasswordField.Password = "";
+                        }
+                    }
+                    ErrorLabel.Content = "Введеный логин или пароль неверны.\nПроверьте входные данные";
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)

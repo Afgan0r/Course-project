@@ -44,12 +44,24 @@
         <StackPanel Grid.Column="1">
             <Label Content="Шины" Style="{StaticResource LabelFontStyle}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
         </StackPanel>
-        <DataGrid Name="TyreDataGrid" Grid.Column="1" Margin="10,42,10,10"/>
+        <DataGrid Name="TyreDataGrid" Grid.Column="1" Margin="10,42,10,10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding name_of_tube}"/>
+                <DataGridTextColumn Header="Количество принятых" Binding="{Binding how_many_took}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
 
         <StackPanel Grid.Column="2">
             <Label Content="Камеры" Style="{StaticResource LabelFontStyle}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
         </StackPanel>
-        <DataGrid Name="TubeDataGrid"  Grid.Column="2" Margin="10,42,10,10"/>
+        <DataGrid Name="TubeDataGrid"  Grid.Column="2" Margin="10,42,10,10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding name_of_tyre}"/>
+                <DataGridTextColumn Header="Количество принятых" Binding="{Binding how_many_took}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
 
     </Grid>
 </Page>

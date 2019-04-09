@@ -14,7 +14,17 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="CheckCellWithFloorDataGrid" Grid.Column="1" Margin="10,42,10,10"/>
+        <DataGrid Name="CheckCellWithFloorDataGrid" Grid.Column="1" Margin="10,42,10,10" AutoGenerateColumns="False" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding number_of_cell}" Header="Номер"/>
+                <DataGridTextColumn Binding="{Binding name_of_floor}" Header="Этаж"/>
+                <DataGridTextColumn Binding="{Binding name_of_cell}" Header="Название"/>
+                <DataGridTextColumn Binding="{Binding specification}" Header="Колеса"/>
+                <DataGridTextColumn Binding="{Binding contains_wheel}" Header="Количество"/>
+                <DataGridTextColumn Binding="{Binding maximum_contains}" Header="Максимальное количество"/>                
+            </DataGrid.Columns>
+
+        </DataGrid>
         <StackPanel Grid.Column="0">
             <StackPanel>
                 <Label Content="Этаж" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,10,0,5"/>
