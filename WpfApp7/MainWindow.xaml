@@ -21,8 +21,8 @@
                 </StackPanel>
                 
                 <Label Name="ErrorLabel" Margin="0,5,0,0" Width="255" Height="50" Style="{StaticResource LabelFontStyle}"/>
-                
-                <Button Name="LogInButton" Content="Войти" Width="50" Margin="0,5,0,0" Click="LogInButton_Click" Style="{StaticResource ButtonFontStyle}"/>
+
+                <Button Name="LogInButton" Content="Войти" Width="50" Margin="0,5,0,0" Click="LogInButton_Click" Style="{StaticResource ButtonFontStyle}" Template="{DynamicResource ButtonRoundAngle}"/>
                 
             </StackPanel>
             
@@ -41,16 +41,13 @@
             <Frame Name="MainMenu" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="5,5,5,5" Background="Gray"/>
             <Frame Name="PersonalCabinetFrame" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
-            <Button Name="LogOut" Click="LogOut_Click" Style="{StaticResource ExitButtonStyle}"/>
-            <Button Name="PersonalCabinet" Style="{StaticResource PersonalCabinetStyle}"/>
-            
+            <Button Name="LogOut" Click="LogOut_Click" Style="{StaticResource ExitButtonStyle}" Template="{DynamicResource ButtonRoundAngle}"/>
             <StackPanel Name="MenuPanel" Grid.Row="1" Grid.Column="0" Margin="5,5,5,5">
-                <Button Name="ReceptionButton" Content="Прием" Margin="0,5,0,5" Click="ReceptionButton_Click" Style="{StaticResource ButtonFontStyle}"/>
-                <Button Name="CompleteWheelsButton" Content="Комплектация" Margin="0,5,0,5" Click="CompleteWheelsButton_Click" Style="{StaticResource ButtonFontStyle}"/>
-                <Button Name="CheckCellsButton" Content="Ячейки" Margin="0,5,0,5" Click="CheckCellsButton_Click" Style="{StaticResource ButtonFontStyle}"/>
-                <Button Name="RealizationButton" Content="Реализация" Margin="0,5,0,5" Click="RealizationButton_Click" Style="{StaticResource ButtonFontStyle}"/>
+                <Button Name="ReceptionButton" Content="Прием" Margin="0,5,0,5" Click="ReceptionButton_Click" Style="{StaticResource ButtonFontStyle}" Template="{DynamicResource ButtonRoundAngle}"/>
+                <Button Name="CompleteWheelsButton" Content="Комплектация" Margin="0,5,0,5" Click="CompleteWheelsButton_Click" Style="{StaticResource ButtonFontStyle}" Template="{DynamicResource ButtonRoundAngle}"/>
+                <Button Name="CheckCellsButton" Content="Ячейки" Margin="0,5,0,5" Click="CheckCellsButton_Click" Style="{StaticResource ButtonFontStyle}" Template="{DynamicResource ButtonRoundAngle}"/>
+                <Button Name="RealizationButton" Content="Реализация" Margin="0,5,0,5" Click="RealizationButton_Click" Style="{StaticResource ButtonFontStyle}" Template="{DynamicResource ButtonRoundAngle}"/>
             </StackPanel>
-            
         </Grid>
 
     </Grid>

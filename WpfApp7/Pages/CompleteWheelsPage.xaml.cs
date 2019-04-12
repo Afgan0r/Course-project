@@ -23,6 +23,11 @@ namespace WpfApp7.Pages
         public CompleteWheelsPage()
         {
             InitializeComponent();
+            FillCompleteWheelsPage();
+        }
+        private void FillCompleteWheelsPage()
+        {
+            //TODO CREATE DATAGRID MANUALY
         }
     }
 }

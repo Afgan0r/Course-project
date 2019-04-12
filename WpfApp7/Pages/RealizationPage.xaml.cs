@@ -23,6 +23,11 @@ namespace WpfApp7.Pages
         public RealizationPage()
         {
             InitializeComponent();
+            FillRealizationPage();
+        }
+        private void FillRealizationPage()
+        {
+            //TODO CREATE DATAGRID MANUALY
         }
     }
 }

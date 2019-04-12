@@ -25,12 +25,29 @@ namespace WpfApp7.Pages
     {
         public CheckCellsPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            FillCellPage();
         }
 
         internal new void Content()
         {
             throw new NotImplementedException();
+        }
+
+        private void FillCellPage()
+        {
+            var selectString = "SELECT dbo.Cell.number_of_cell, dbo.Floor.name_of_floor, dbo.Cell.name_of_cell, dbo.Cell.specification, dbo.Cell.contains_wheel, dbo.Cell.maximum_contains " +
+                "FROM dbo.Cell INNER JOIN dbo.Floor " +
+                "ON dbo.Cell.floor_of_cell = dbo.Floor.id_floor";
+            using (var connection = connectToDatabase())
+            {
+                var command = new SqlCommand(selectString, connection);
+                var dataAdapter = new SqlDataAdapter(command);
+                var dataTable = new DataTable("CellsWithFloor");
+                dataAdapter.Fill(dataTable);
+                CheckCellWithFloorDataGrid.ItemsSource = dataTable.DefaultView;
+                connection.Close();
+            }
         }
     }
 }
