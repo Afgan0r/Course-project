@@ -18,10 +18,10 @@
         
         <StackPanel Grid.Column="0">
             <StackPanel>
-                <Label Content="Шины" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,0,0,0" FontSize="20"/>
+                <Label Content="Покрышки" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,0,0,0" FontSize="20"/>
 
-                <Label Content="Модель шины" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,10,0,0"/>
-                <ComboBox Name="TyreModelComboBox" Style="{StaticResource ComboBoxFontStyle}" Margin="0,5,0,0" IsEditable="True"/>
+                <Label Content="Модель покрышки" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,10,0,0"/>
+                <ComboBox Name="TyreModelComboBox" Style="{StaticResource ComboBoxFontStyle}" Margin="0,5,0,0" IsEditable="True" IsDropDownOpen="True" />
 
                 <Label Content="Количество" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,5,0,0"/>
                 <TextBox Name="CountOfTyres" Style="{StaticResource TextBoxFontStyle}" Margin="0,5,0,10" Width="40"/>
@@ -32,7 +32,7 @@
                 <Label Content="Камеры" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,0,0,0" FontSize="20"/>
 
                 <Label Content="Модель камеры" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,10,0,0"/>
-                <ComboBox Name="TubeModelComboBox" Style="{StaticResource ComboBoxFontStyle}" Margin="0,5,0,0" IsEditable="True"/>
+                <ComboBox Name="TubeModelComboBox" Style="{StaticResource ComboBoxFontStyle}" Margin="0,5,0,0" IsEditable="True" IsDropDownOpen="True"/>
 
                 <Label Content="Количество" HorizontalAlignment="Center" Style="{StaticResource LabelFontStyle}" Margin="0,5,0,0"/>
                 <TextBox Name="CountOfTubes" Style="{StaticResource TextBoxFontStyle}" Margin="0,5,0,10" Width="40"/>
@@ -42,7 +42,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Label Content="Шины" Style="{StaticResource LabelFontStyle}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Label Content="Покрышки" Style="{StaticResource LabelFontStyle}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
         </StackPanel>
         <DataGrid Name="TyreDataGrid" Grid.Column="1" Margin="10,42,10,10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>

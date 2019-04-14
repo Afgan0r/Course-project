@@ -52,7 +52,7 @@ namespace WpfApp7.Pages
                 TyreDataGrid.ItemsSource = dataTableTyre.DefaultView;
             }
         }
-private void FillComboBoxes() //TyreModelComboBox, TubeModelComboBox
+        private void FillComboBoxes() //TyreModelComboBox, TubeModelComboBox
         {
             //needed tubes
             tyreList.Add("NORTEC ER-112 а/п 12.00-20 ТТ");

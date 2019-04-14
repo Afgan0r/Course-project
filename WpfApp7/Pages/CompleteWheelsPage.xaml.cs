@@ -24,10 +24,23 @@ namespace WpfApp7.Pages
         {
             InitializeComponent();
             FillCompleteWheelsPage();
-        }
+        }            
+        
+        //oof.Visibility = Visibility.Visible;
+
         private void FillCompleteWheelsPage()
         {
             //TODO CREATE DATAGRID MANUALY
+        }
+
+        private void CompleteWheelsWithoutTubeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CompleteWheelsWithTubeButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
