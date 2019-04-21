@@ -67,9 +67,12 @@ namespace WpfApp7
                     if (reader[0].ToString().Equals(nameOfTube))
                     {
                         int count = int.Parse(reader[1].ToString());
-                        var updateString = "UPDATE dbo.Tube" +
-                            "SET how_many_took = @name_of_tyre";
+                        var updateString = "UPDATE dbo.Tube " +
+                            "SET how_many_took = @how_many_took " +
+                            "WHERE name_of_tube = @name_of_tube";
                         command = new SqlCommand(updateString, connection);
+                        command.Parameters.AddWithValue("name_of_tube", nameOfTube);
+                        command.Parameters.AddWithValue("how_many_took", count + howManyTook);
                         reader.Close();
                         command.ExecuteNonQuery();
                         connection.Close();
@@ -85,6 +88,130 @@ namespace WpfApp7
                 command.ExecuteNonQuery();
                 connection.Close();
                 return;
+            }
+        }
+        public static void DeleteEmptyTubeAndTyreRows()
+        {
+            using (var connection = connectToDatabase())
+            {
+                string deleteString = "DELETE FROM dbo.Tyre " +
+                    "WHERE how_many_took = 0";
+                var command = new SqlCommand(deleteString, connection);
+                command.ExecuteNonQuery();
+
+                deleteString = "DELETE FROM dbo.Tube " +
+                    "WHERE how_many_took = 0";
+                command = new SqlCommand(deleteString, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public static void RefreshWithdrawInTables()
+        {
+            using (var connection = connectToDatabase())
+            {
+                string updateString = "UPDATE dbo.tyre " +
+                    "SET withdraw = 0 " +
+                    "WHERE withdraw > 0";
+                var command = new SqlCommand(updateString, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public static void ChangeWithdrawInTyreTable(string nameOfTyre, int withdraw)
+        {
+            using (var connection = connectToDatabase())
+            {
+                string selectString = "SELECT how_many_took " +
+                    "FROM dbo.Tyre " +
+                    "WHERE name_of_tyre = @name_of_tyre";
+                var command = new SqlCommand(selectString, connection);
+                command.Parameters.AddWithValue("name_of_tyre", nameOfTyre);
+                var reader = command.ExecuteReader();                
+                int countTyres = 0;
+                while (reader.Read())
+                {
+                    countTyres = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
+
+                string updateString = "UPDATE dbo.Tyre " +
+                    "SET " +
+                    "how_many_took = @how_many_took, " +
+                    "withdraw = @withdraw " +
+                    "WHERE name_of_tyre = @name_of_tyre";
+                command = new SqlCommand(updateString, connection);
+                command.Parameters.AddWithValue("how_many_took", countTyres - withdraw);
+                command.Parameters.AddWithValue("withdraw", "-"+withdraw);
+                command.Parameters.AddWithValue("name_of_tyre", nameOfTyre);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public static void ChangeWithdrawInTubeTable(string nameOfTube, int withdraw)
+        {
+            using (var connection = connectToDatabase())
+            {
+                string selectString = "SELECT how_many_took " +
+                    "FROM dbo.Tube " +
+                    "WHERE name_of_tube = @name_of_tube";
+                var command = new SqlCommand(selectString, connection);
+                command.Parameters.AddWithValue("name_of_tube", nameOfTube);
+                var reader = command.ExecuteReader();
+                int countTubes = 0;
+                while (reader.Read())
+                {
+                    countTubes = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
+
+                string updateString = "UPDATE dbo.Tube " +
+                    "SET " +
+                    "how_many_took = @how_many_took, " +
+                    "withdraw = @withdraw " +
+                    "WHERE name_of_tube = @name_of_tube";
+                command = new SqlCommand(updateString, connection);
+                command.Parameters.AddWithValue("how_many_took", countTubes - withdraw);
+                command.Parameters.AddWithValue("withdraw", "-" + withdraw);
+                command.Parameters.AddWithValue("name_of_tube", nameOfTube);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public static void CompleteToTubeTypeWheels(string nameOfTyre, string nameOfTube)
+        {
+            using (var connection = connectToDatabase())
+            {
+                string selectString = "SELECT " +
+                    "dbo.Tube.name_of_tube, dbo.Tube.how_many_took, " +
+                    "dbo.Tyre.name_of_tyre, dbo.Tyre.how_many_took AS Expr1, dbo.Tyre.tube_for_tyre " +
+                    "FROM " +
+                    "dbo.Tube CROSS JOIN dbo.Tyre " +
+                    "WHERE " +
+                    "(dbo.Tube.name_of_tube = @nameOfTube) " +
+                    "AND " +
+                    "(dbo.Tyre.name_of_tyre = @nameOfTyre)";
+                var command = new SqlCommand(selectString, connection);
+                command.Parameters.AddWithValue("nameOfTube", nameOfTube);
+                command.Parameters.AddWithValue("nameOfTyre", nameOfTyre);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int countTyre = int.Parse(reader[1].ToString());
+                    int countTube = int.Parse(reader[3].ToString());
+                    if (countTyre < countTube)
+                    {
+                        ChangeWithdrawInTyreTable(nameOfTyre, countTyre);
+                        ChangeWithdrawInTubeTable(nameOfTube, countTyre);
+                    }
+                    else
+                    {
+                        ChangeWithdrawInTyreTable(nameOfTyre, countTube);
+                        ChangeWithdrawInTubeTable(nameOfTube, countTube);
+                    }
+                }
+                
+                connection.Close();
             }
         }
     }

@@ -28,7 +28,6 @@ namespace WpfApp7.Pages
         {
             InitializeComponent();
             FillComboBoxes();
-            FillReceptionPage();
         }
         private ObservableCollection<string> tyreList = new ObservableCollection<string>();
         private ObservableCollection<string> tubeList = new ObservableCollection<string>();
@@ -50,6 +49,7 @@ namespace WpfApp7.Pages
                 var dataTableTyre = new DataTable("TyreView");
                 dataAdapterTyre.Fill(dataTableTyre);
                 TyreDataGrid.ItemsSource = dataTableTyre.DefaultView;
+                connection.Close();
             }
         }
         private void FillComboBoxes() //TyreModelComboBox, TubeModelComboBox
@@ -91,16 +91,16 @@ namespace WpfApp7.Pages
                     break;
                 //not needed tubes
                 case "NORTEC AC 200 сх/п 420/70R24 б/к":
-                    InsertIntoTyreTable(tyreModel, tyreCount, false, "");
+                    InsertIntoTyreTable(tyreModel, tyreCount, false, "none");
                     break;
                 case "NORTEC ER-218 а/п 10.00-16,5 10PR TL":
-                    InsertIntoTyreTable(tyreModel, tyreCount, false, "");
+                    InsertIntoTyreTable(tyreModel, tyreCount, false, "none");
                     break;
                 case "NORTEC ER-218 а/п 12.00-16,5 10PR TL":
-                    InsertIntoTyreTable(tyreModel, tyreCount, false, "");
+                    InsertIntoTyreTable(tyreModel, tyreCount, false, "none");
                     break;
                 case "NORTEC ER-218 а/п 12.00-16,5 12PR TL":
-                    InsertIntoTyreTable(tyreModel, tyreCount, false, "");
+                    InsertIntoTyreTable(tyreModel, tyreCount, false, "none");
                     break;
             }
             FillReceptionPage();
@@ -127,6 +127,12 @@ namespace WpfApp7.Pages
             FillReceptionPage();
             CountOfTubes.Text = null;
             TubeModelComboBox.SelectedIndex = -1;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DeleteEmptyTubeAndTyreRows();
+            FillReceptionPage();            
         }
     }
 }
