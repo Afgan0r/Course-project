@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static WpfApp7.SQL;
 
 namespace WpfApp7.Pages
@@ -75,8 +63,14 @@ namespace WpfApp7.Pages
 
         private void InsertTyreDataInDataBase_Click(object sender, RoutedEventArgs e)
         {
-            string tyreModel = TyreModelComboBox.SelectedValue.ToString();
+            string tyreModel = TyreModelComboBox.SelectedValue.ToString();            
             int tyreCount = int.Parse(CountOfTyres.Text);
+            if (tyreCount <=0)
+            {
+                CountOfTyres.Text = null;
+                TyreModelComboBox.SelectedIndex = -1;
+                return;
+            }
             switch (tyreModel)
             {
                 //needed tubes
@@ -112,6 +106,12 @@ namespace WpfApp7.Pages
         {
             string tubeModel = TubeModelComboBox.SelectedValue.ToString();
             int tubeCount = int.Parse(CountOfTubes.Text);
+            if (tubeCount <= 0)
+            {
+                CountOfTubes.Text = null;
+                TubeModelComboBox.SelectedIndex = -1;
+                return;
+            }
             switch (tubeModel)
             {
                 case "12.00-20 а/камера":

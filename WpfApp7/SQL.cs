@@ -90,6 +90,7 @@ namespace WpfApp7
                 return;
             }
         }
+
         public static void DeleteEmptyTubeAndTyreRows()
         {
             using (var connection = connectToDatabase())
@@ -112,8 +113,14 @@ namespace WpfApp7
             {
                 string updateString = "UPDATE dbo.tyre " +
                     "SET withdraw = 0 " +
-                    "WHERE withdraw > 0";
+                    "WHERE withdraw != 0";
                 var command = new SqlCommand(updateString, connection);
+                command.ExecuteNonQuery();
+
+                updateString = "UPDATE dbo.tube " +
+                    "SET withdraw = 0 " +
+                    "WHERE withdraw != 0";
+                command = new SqlCommand(updateString, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -145,6 +152,8 @@ namespace WpfApp7
                 command.Parameters.AddWithValue("withdraw", "-"+withdraw);
                 command.Parameters.AddWithValue("name_of_tyre", nameOfTyre);
                 command.ExecuteNonQuery();
+
+                MoveWheelsToCells(nameOfTyre, withdraw);
                 connection.Close();
             }
         }
@@ -213,6 +222,42 @@ namespace WpfApp7
                 
                 connection.Close();
             }
+        }
+        public static void MoveWheelsToCells (string nameOfTyre, int count)
+        {
+            using (var connection = connectToDatabase())
+            {
+                string selectString = "SELECT contains_wheel " +
+                    "FROM dbo.Cell " +
+                    "WHERE specification = @specification";
+                var command = new SqlCommand(selectString, connection);
+                command.Parameters.AddWithValue("specification", nameOfTyre);
+                var reader = command.ExecuteReader();
+                int countTyres = 0;
+                while (reader.Read())
+                {
+                    countTyres = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
+
+                string updateString = "UPDATE dbo.Cell " +
+                    "SET contains_wheel = @contains_wheel " +
+                    "WHERE specification = @specification";
+                command = new SqlCommand(updateString, connection);
+                command.Parameters.AddWithValue("contains_wheel", count + countTyres);
+                command.Parameters.AddWithValue("specification", nameOfTyre);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        public static void InsertIntoRealizationTable(string nameOfWheel, int count)
+        {
+
+        }
+        public static void DeleteAllRowsInRealizationTable ()
+        {
+
         }
     }
 }
