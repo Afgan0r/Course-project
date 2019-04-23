@@ -21,10 +21,10 @@
             <TextBox Name="HowManyRealizeTextBox" Style="{StaticResource LogInStyle}" Width="40" Margin="0,0,0,10"/>
             <Button Name="ExecuteButton" Content="Выполнить" Style="{StaticResource ButtonFontStyle}" Width="80" Template="{DynamicResource ButtonRoundAngle}" Click="ExecuteButton_Click"/>
         </StackPanel>
-        <DataGrid Name="RealizationDataGrid" Grid.Column="1" Margin="10,42,10,10" IsReadOnly="True">
+        <DataGrid Name="RealizationDataGrid" Grid.Column="1" Margin="10,42,10,10" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название шины" Binding="{Binding name_of_wheel}"/>
-                <DataGridTextColumn Header="Кол-во" Binding="{Binding how_many_took}"/>
+                <DataGridTextColumn Header="Кол-во" Binding="{Binding how_many_took}"/>                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

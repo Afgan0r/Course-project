@@ -43,13 +43,14 @@ namespace WpfApp7
                     }
                 }
                 reader.Close();
-                string insertString = "INSERT dbo.Tyre ([name_of_tyre],[how_many_took],[is_need_tube],[tube_for_tyre]) " +
-                    "VALUES (@name_of_tyre, @how_many_took, @is_need_tube, @tube_for_tyre) ";
+                string insertString = "INSERT dbo.Tyre ([name_of_tyre],[how_many_took],[is_need_tube],[tube_for_tyre],[withdraw]) " +
+                    "VALUES (@name_of_tyre, @how_many_took, @is_need_tube, @tube_for_tyre, @withdraw) ";
                 command = new SqlCommand(insertString, connection);
                 command.Parameters.AddWithValue("@name_of_tyre", nameOfTyre);
                 command.Parameters.AddWithValue("@how_many_took", howManyTook);
                 command.Parameters.AddWithValue("@is_need_tube", isNeedTube);
                 command.Parameters.AddWithValue("@tube_for_tyre", tubeForTyre);
+                command.Parameters.AddWithValue("@withdraw", 0);
                 command.ExecuteNonQuery();
                 connection.Close();
                 return;
@@ -79,11 +80,12 @@ namespace WpfApp7
                         return;
                     }
                 }
-                string insertString = "INSERT dbo.Tube ([name_of_tube],[how_many_took])" +
-                    "VALUES (@name_of_tube,@how_many_took)";
+                string insertString = "INSERT dbo.Tube ([name_of_tube],[how_many_took],[withdraw])" +
+                    "VALUES (@name_of_tube,@how_many_took, @withdraw)";
                 command = new SqlCommand(insertString, connection);
                 command.Parameters.AddWithValue("@name_of_tube", nameOfTube);
                 command.Parameters.AddWithValue("@how_many_took", howManyTook);
+                command.Parameters.AddWithValue("@withdraw", 0);
                 reader.Close();
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -111,13 +113,20 @@ namespace WpfApp7
         {
             using (var connection = connectToDatabase())
             {
-                string updateString = "UPDATE dbo.tyre " +
+                string updateString = "UPDATE dbo.Tyre " +
                     "SET withdraw = 0 " +
                     "WHERE withdraw != 0";
                 var command = new SqlCommand(updateString, connection);
                 command.ExecuteNonQuery();
 
-                updateString = "UPDATE dbo.tube " +
+                updateString = "UPDATE dbo.Tube " +
+                    "SET withdraw = 0 " +
+                    "WHERE withdraw != 0";
+                command = new SqlCommand(updateString, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                updateString = "UPDATE dbo.Realization " +
                     "SET withdraw = 0 " +
                     "WHERE withdraw != 0";
                 command = new SqlCommand(updateString, connection);
@@ -125,7 +134,7 @@ namespace WpfApp7
                 connection.Close();
             }
         }
-        public static void ChangeWithdrawInTyreTable(string nameOfTyre, int withdraw)
+        public static void ChangeWithdrawInTyreTable(string nameOfTyre, int withdraw, string nameOfWheel)
         {
             using (var connection = connectToDatabase())
             {
@@ -153,7 +162,7 @@ namespace WpfApp7
                 command.Parameters.AddWithValue("name_of_tyre", nameOfTyre);
                 command.ExecuteNonQuery();
 
-                MoveWheelsToCells(nameOfTyre, withdraw);
+                MoveWheelsToCells(nameOfWheel, withdraw);
                 connection.Close();
             }
         }
@@ -187,7 +196,7 @@ namespace WpfApp7
                 connection.Close();
             }
         }
-        public static void CompleteToTubeTypeWheels(string nameOfTyre, string nameOfTube)
+        public static void CompleteToTubeTypeWheels(string nameOfTyre, string nameOfTube, string nameOfWheel)
         {
             using (var connection = connectToDatabase())
             {
@@ -199,10 +208,10 @@ namespace WpfApp7
                     "WHERE " +
                     "(dbo.Tube.name_of_tube = @nameOfTube) " +
                     "AND " +
-                    "(dbo.Tyre.name_of_tyre = @nameOfTyre)";
+                    "(dbo.Tyre.name_of_tyre = @nameOfWheel)";
                 var command = new SqlCommand(selectString, connection);
                 command.Parameters.AddWithValue("nameOfTube", nameOfTube);
-                command.Parameters.AddWithValue("nameOfTyre", nameOfTyre);
+                command.Parameters.AddWithValue("nameOfWheel", nameOfTyre);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -210,12 +219,12 @@ namespace WpfApp7
                     int countTube = int.Parse(reader[3].ToString());
                     if (countTyre < countTube)
                     {
-                        ChangeWithdrawInTyreTable(nameOfTyre, countTyre);
+                        ChangeWithdrawInTyreTable(nameOfTyre, countTyre, nameOfWheel);
                         ChangeWithdrawInTubeTable(nameOfTube, countTyre);
                     }
                     else
                     {
-                        ChangeWithdrawInTyreTable(nameOfTyre, countTube);
+                        ChangeWithdrawInTyreTable(nameOfTyre, countTube, nameOfWheel);
                         ChangeWithdrawInTubeTable(nameOfTube, countTube);
                     }
                 }
@@ -223,7 +232,7 @@ namespace WpfApp7
                 connection.Close();
             }
         }
-        public static void MoveWheelsToCells (string nameOfTyre, int count)
+        public static void MoveWheelsToCells(string nameOfWheel, int count)
         {
             using (var connection = connectToDatabase())
             {
@@ -231,7 +240,7 @@ namespace WpfApp7
                     "FROM dbo.Cell " +
                     "WHERE specification = @specification";
                 var command = new SqlCommand(selectString, connection);
-                command.Parameters.AddWithValue("specification", nameOfTyre);
+                command.Parameters.AddWithValue("specification", nameOfWheel);
                 var reader = command.ExecuteReader();
                 int countTyres = 0;
                 while (reader.Read())
@@ -245,19 +254,58 @@ namespace WpfApp7
                     "WHERE specification = @specification";
                 command = new SqlCommand(updateString, connection);
                 command.Parameters.AddWithValue("contains_wheel", count + countTyres);
-                command.Parameters.AddWithValue("specification", nameOfTyre);
+                command.Parameters.AddWithValue("specification", nameOfWheel);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
         }
 
-        public static void InsertIntoRealizationTable(string nameOfWheel, int count)
+        public static void InsertIntoRealizationTable(string nameOfWheel, int withdraw)
         {
+            using (var connection = connectToDatabase())
+            {
+                string selectString = "SELECT contains_wheel " +
+                "FROM dbo.Cell " +
+                "WHERE specification = @specification";
+                var command = new SqlCommand(selectString, connection);
+                command.Parameters.AddWithValue("specification", nameOfWheel);
+                var reader = command.ExecuteReader();
+                int countWheel = 0;
+                while (reader.Read())
+                {
+                    countWheel = int.Parse(reader[0].ToString());
+                }
+                if (withdraw>countWheel)
+                    return;
+                reader.Close();
 
+                string updateString = "UPDATE dbo.Cell " +
+                    "SET contains_wheel = @contains_wheel " +
+                    "WHERE specification = @specification";
+                command = new SqlCommand(updateString, connection);
+                command.Parameters.AddWithValue("contains_wheel", countWheel - withdraw);
+                command.Parameters.AddWithValue("specification", nameOfWheel);
+                command.ExecuteNonQuery();
+
+                string insertString = "INSERT dbo.Realization (name_of_wheel, how_many_took) " +
+                    "VALUES (@name_of_wheel, @how_many_took)";
+                command = new SqlCommand(insertString, connection);
+                command.Parameters.AddWithValue("@name_of_wheel", nameOfWheel);
+                command.Parameters.AddWithValue("@how_many_took", "-"+withdraw);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
         public static void DeleteAllRowsInRealizationTable ()
         {
-
+            using (var connection = connectToDatabase())
+            {
+                string truncateString = "TRUNCATE TABLE dbo.Realization";
+                var command = new SqlCommand(truncateString, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
     }
 }

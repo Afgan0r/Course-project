@@ -62,7 +62,21 @@ namespace WpfApp7.Pages
                     {
                         string nameOfTyre = reader[0].ToString();
                         int withdrawTyre = int.Parse(reader[1].ToString());
-                        ChangeWithdrawInTyreTable(nameOfTyre,withdrawTyre);
+                        switch (nameOfTyre)
+                        {
+                            case "NORTEC AC 200 сх/п 420/70R24 б/к":
+                                ChangeWithdrawInTyreTable(nameOfTyre, withdrawTyre, "NORTEC AC 200 сх/ш 420/70R24 б/к");
+                                break;
+                            case "NORTEC ER-218 а/п 10.00-16,5 10PR TL":
+                                ChangeWithdrawInTyreTable(nameOfTyre, withdrawTyre, "NORTEC ER-218 а/ш 10.00-16,5 10PR TL");
+                                break;
+                            case "NORTEC ER-218 а/п 12.00-16,5 10PR TL":
+                                ChangeWithdrawInTyreTable(nameOfTyre, withdrawTyre, "NORTEC ER-218 а/ш 12.00-16,5 10PR TL");
+                                break;
+                            case "NORTEC ER-218 а/п 12.00-16,5 12PR TL":
+                                ChangeWithdrawInTyreTable(nameOfTyre, withdrawTyre, "NORTEC ER-218 а/п 12.00-16,5 12PR TL");
+                                break;
+                        }
                         CountTyresWithdrawInDataGrid.Visibility = Visibility.Visible;
                         FillCompleteWheelsPage();
                     }
@@ -83,8 +97,19 @@ namespace WpfApp7.Pages
                     if (reader[3].ToString().Equals("True"))
                     {
                         string nameOfTyre = reader[0].ToString();
-                        string requiredTube = reader[4].ToString();                        
-                        CompleteToTubeTypeWheels(nameOfTyre, requiredTube);
+                        string requiredTube = reader[4].ToString();
+                        switch (nameOfTyre)
+                        {
+                            case "NORTEC ER-112 а/п 12.00-20 ТТ":
+                                CompleteToTubeTypeWheels(nameOfTyre, requiredTube, "NORTEC ER-112 а/ш 12.00-20 ТТ");
+                                break;
+                            case "NORTEC IM-14 сх/п 9.00-16":
+                                CompleteToTubeTypeWheels(nameOfTyre, requiredTube, "NORTEC IM-14 сх/ш 9.00-16");
+                                break;
+                            case "NORTEC IM-15 сх/п 6.50-16 6PR":
+                                CompleteToTubeTypeWheels(nameOfTyre, requiredTube, "NORTEC IM-15 сх/ш 6.50-16 6PR");
+                                break;
+                        }
                         CountTyresWithdrawInDataGrid.Visibility = Visibility.Visible;
                         CountTubesWithdrawInDataGrid.Visibility = Visibility.Visible;                        
                         FillCompleteWheelsPage();
