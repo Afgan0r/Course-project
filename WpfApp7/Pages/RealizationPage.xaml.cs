@@ -38,6 +38,8 @@ namespace WpfApp7.Pages
 
         private void FillComboBoxes ()
         {
+            wheelsList.Clear();
+            WheelsComboBox.ItemsSource = wheelsList;
             string selectString = "SELECT specification " +
                 "FROM dbo.Cell " +
                 "WHERE contains_wheel > 0";
