@@ -15,7 +15,7 @@ namespace WpfApp7.Pages
         public RealizationPage()
         {
             InitializeComponent();
-            FillComboBoxes();
+            
         }
 
         ObservableCollection<string> wheelsList = new ObservableCollection<string>();
@@ -39,7 +39,8 @@ namespace WpfApp7.Pages
         private void FillComboBoxes ()
         {
             string selectString = "SELECT specification " +
-                "FROM dbo.Cell";
+                "FROM dbo.Cell " +
+                "WHERE contains_wheel > 0";
             using (var connection = connectToDatabase())
             {
                 var command = new SqlCommand(selectString, connection);
@@ -57,11 +58,13 @@ namespace WpfApp7.Pages
         {
             DeleteAllRowsInRealizationTable();
             FillRealizationPage();
+            FillComboBoxes();
         }
 
         private void Page_Unloaded_1(object sender, RoutedEventArgs e)
         {
             DeleteAllRowsInRealizationTable();
+            FillComboBoxes();
         }
 
         private void ExecuteButton_Click(object sender, RoutedEventArgs e)

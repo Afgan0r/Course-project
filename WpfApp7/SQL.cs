@@ -125,13 +125,6 @@ namespace WpfApp7
                 command = new SqlCommand(updateString, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
-
-                updateString = "UPDATE dbo.Realization " +
-                    "SET withdraw = 0 " +
-                    "WHERE withdraw != 0";
-                command = new SqlCommand(updateString, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
             }
         }
         public static void ChangeWithdrawInTyreTable(string nameOfTyre, int withdraw, string nameOfWheel)
